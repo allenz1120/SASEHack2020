@@ -6,17 +6,26 @@ import Container from "react-bootstrap/Container";
 class ChartsPage extends React.Component {
   state = {
     dataBar: {
-      labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+      labels: [
+        "Anger",
+        "Fear",
+        "Joy",
+        "Sadness",
+        "Analytical",
+        "Confident",
+        "Tentative",
+      ],
       datasets: [
         {
-          label: "% of Votes",
-          data: [12, 19, 3, 5, 2, 3],
+          label: "Emotions",
+          data: [12, 19, 30, 45, 28, 23, 14],
           backgroundColor: [
             "rgba(255, 134,159,0.4)",
             "rgba(98,  182, 239,0.4)",
             "rgba(255, 218, 128,0.4)",
             "rgba(113, 205, 205,0.4)",
             "rgba(170, 128, 252,0.4)",
+            "rgba(255, 177, 101,0.4)",
             "rgba(255, 177, 101,0.4)",
           ],
           borderWidth: 2,
@@ -27,6 +36,7 @@ class ChartsPage extends React.Component {
             "rgba(113, 205, 205, 1)",
             "rgba(170, 128, 252, 1)",
             "rgba(255, 177, 101, 1)",
+            "rgba(255, 177, 101, 1)",
           ],
         },
       ],
@@ -34,6 +44,9 @@ class ChartsPage extends React.Component {
     barChartOptions: {
       responsive: true,
       maintainAspectRatio: false,
+      legend: {
+        display: false,
+      },
       scales: {
         xAxes: [
           {
@@ -62,7 +75,7 @@ class ChartsPage extends React.Component {
   render() {
     return (
       <Container>
-        <h3 className="mt-5">Bar chart</h3>
+        <h3 className="mt-5">Two Weeks Average</h3>
         <Bar data={this.state.dataBar} options={this.state.barChartOptions} />
       </Container>
     );

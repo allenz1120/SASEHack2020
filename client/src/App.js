@@ -3,37 +3,23 @@ import "./App.css";
 import Axios from "axios";
 import Home from "./components/home";
 import "bootstrap/dist/css/bootstrap.min.css";
-
 import firebase from "firebase/app";
-import "firebase/firestore";
-import "firebase/auth";
+import { auth } from "./firebase";
+import Button from "react-bootstrap/Button";
 
 import { useAuthState } from "react-firebase-hooks/auth";
 // import { useCollectionData } from "react-firebase-hooks/firestore";
 
-firebase.initializeApp({
-  apiKey: "AIzaSyBdolrMC5TKfiER6jYC0vsnyq9wfdOuTgE",
-  authDomain: "sasehacks-3468d.firebaseapp.com",
-  databaseURL: "https://sasehacks-3468d.firebaseio.com",
-  projectId: "sasehacks-3468d",
-  storageBucket: "sasehacks-3468d.appspot.com",
-  messagingSenderId: "513188053690",
-  appId: "1:513188053690:web:523b67a74d0dd1fb95b883",
-});
-
-const auth = firebase.auth();
-// const firestore = firebase.firestore();
-
 function App() {
-  Axios({
-    method: "GET",
-    url: "http://localhost:5000/",
-    headers: {
-      "Content-Type": "application/json",
-    },
-  }).then((res) => {
-    console.log(res.data.message);
-  });
+  // Axios({
+  //   method: "GET",
+  //   url: "http://localhost:5000/",
+  //   headers: {
+  //     "Content-Type": "application/json",
+  //   },
+  // }).then((res) => {
+  //   console.log(res.data.message);
+  // });
 
   const [user] = useAuthState(auth);
 
@@ -46,7 +32,26 @@ function SignIn() {
     auth.signInWithPopup(provider);
   };
 
-  return <button onClick={signInWithGoogle}>Sign in with Google</button>;
+  let child = {
+    maxWidth: "20rem",
+    background: "#eee",
+    padding: "1rem",
+    borderRadius: "2rem",
+    position: "absolute",
+    left: "50%",
+    top: "40%",
+    transform: "translate(-50%, -50%)",
+  };
+
+  return (
+    <div style={{ position: "relative", minHeight: "100vh" }}>
+      <div style={child}>
+        <h2>Welcome To Tranquility</h2>
+        <br />
+        <Button onClick={signInWithGoogle}>Sign in with Google</Button>
+      </div>
+    </div>
+  );
 }
 
 export default App;

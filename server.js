@@ -40,6 +40,7 @@ const toneAnalyzer = new ToneAnalyzerV3({
 
 app.get("/mood/:text", function (req, res) {
   let text = req.params.text;
+  console.log(text);
   let toneParams = {
     toneInput: { text: text },
     contentType: "application/json",

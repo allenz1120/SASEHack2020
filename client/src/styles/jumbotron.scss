@@ -2,11 +2,27 @@
   padding-top: 0;
   padding-bottom: 0;
   margin-bottom: 0px;
+  height: 30rem;
+  margin-top: -6rem;
 }
 
 .jumbotron-fluid {
   background-image: url("./../assets/jumboPic.JPG");
+  background-position: center;
+  background-size: cover;
+  border-radius: 0 !important;
   border-top: 2px solid white;
   // border-bottom: 0px solid white;
   color: white;
+}
+
+h1 {
+  margin-top: 7rem !important;
+  font-weight: 700 !important;
+  font-size: 2.5rem !important;
+  text-shadow: 2px 2px#1e4845;
+}
+
+container {
+  margin-right: 10rem;
 }

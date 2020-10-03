@@ -7,11 +7,11 @@ const Jumbo = () => {
   return (
     <Jumbotron fluid>
       <Container>
-        <h1>Fluid jumbotron</h1>
-        <p>
-          This is a modified jumbotron that occupies the entire horizontal space
-          of its parent.
-        </p>
+        <h1>
+          “Peace is a daily, a weekly, a monthly process, gradually changing
+          opinions, slowly eroding old barriers, quietly building new
+          structures.” —John F. Kennedy
+        </h1>
       </Container>
     </Jumbotron>
   );

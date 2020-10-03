@@ -4,12 +4,15 @@ import Jumbo from "./jumbotron";
 import TodayEntry from "./todayEntry";
 import OldEntry from "./OldEntry";
 import BarChart from "./BarChart";
+import "./../styles/home.scss";
 
 const Home = () => {
   return (
     <div className="App">
-      <NavBar />
-      <Jumbo />
+      <div className="header">
+        <NavBar />
+        <Jumbo />
+      </div>
       <TodayEntry />
       <OldEntry />
       <BarChart />
