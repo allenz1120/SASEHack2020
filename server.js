@@ -18,25 +18,41 @@ const toneAnalyzer = new ToneAnalyzerV3({
     "https://api.us-south.tone-analyzer.watson.cloud.ibm.com/instances/a7465f8e-2d06-40ab-9eb4-f31f9b1deb83",
 });
 
-const text =
-  "Team, I know that times are tough! Product " +
-  "sales have been disappointing for the past three " +
-  "quarters. We have a competitive product, but we " +
-  "need to do a better job of selling it!";
+// const text =
+//   "Team, I know that times are tough! Product " +
+//   "sales have been disappointing for the past three " +
+//   "quarters. We have a competitive product, but we " +
+//   "need to do a better job of selling it!";
 
-const toneParams = {
-  toneInput: { text: text },
-  contentType: "application/json",
-};
+// const toneParams = {
+//   toneInput: { text: text },
+//   contentType: "application/json",
+// };
 
-toneAnalyzer
-  .tone(toneParams)
-  .then((toneAnalysis) => {
-    console.log(JSON.stringify(toneAnalysis, null, 2));
-  })
-  .catch((err) => {
-    console.log("error:", err);
-  });
+// toneAnalyzer
+//   .tone(toneParams)
+//   .then((toneAnalysis) => {
+//     console.log(JSON.stringify(toneAnalysis, null, 2));
+//   })
+//   .catch((err) => {
+//     console.log("error:", err);
+//   });
+
+app.get("/mood/:text", function (req, res) {
+  let text = req.params.text;
+  let toneParams = {
+    toneInput: { text: text },
+    contentType: "application/json",
+  };
+  toneAnalyzer
+    .tone(toneParams)
+    .then((toneAnalysis) => {
+      res.send(toneAnalysis.result);
+    })
+    .catch((err) => {
+      console.log("error:", err);
+    });
+});
 
 app.get("/", (req, res) => {
   res.send({ message: "We did it!" });

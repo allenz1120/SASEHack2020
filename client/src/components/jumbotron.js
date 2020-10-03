@@ -1,5 +1,6 @@
 import Jumbotron from "react-bootstrap/Jumbotron";
 import Container from "react-bootstrap/Container";
+import "./../styles/jumbotron.scss";
 import React from "react";
 
 const Jumbo = () => {
