@@ -55,9 +55,10 @@ function OldEntry() {
 
       <Container style={{ marginTop: "1rem" }}>
         {entries &&
-          entries
-            .reverse()
-            .map((entry) => <Entry key={entry.id} entry={entry} />)}
+          entries.reverse().map((entry) => {
+            console.log(entry);
+            return <Entry key={entry.id} entry={entry} />;
+          })}
       </Container>
 
       <Modal show={show} onHide={handleClose}>

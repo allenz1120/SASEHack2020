@@ -13,7 +13,7 @@ function TodayEntry(prompt) {
 
   const sendMessage = async (e) => {
     e.preventDefault();
-    const { uid } = auth.currentUser;
+    const { uid, email, displayName } = auth.currentUser;
     var send;
     Axios({
       method: "GET",
@@ -28,6 +28,8 @@ function TodayEntry(prompt) {
         text: formValue,
         createdAt: firebase.firestore.FieldValue.serverTimestamp(),
         uid,
+        email,
+        displayName,
         prompt: prompt.prompt,
       };
       // console.log(tones[0]);
