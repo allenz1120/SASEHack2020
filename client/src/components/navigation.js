@@ -17,13 +17,21 @@ const Navigation = () => {
       <Navbar.Toggle />
 
       <Navbar.Collapse className="justify-content-end">
-        <Nav.Link href="#home">Journals</Nav.Link>
-        <Nav.Link href="#chat">Chat</Nav.Link>
-        <Button className="sign-out" onClick={() => auth.signOut()}>
+        {/* <Nav.Link className="navbar-text" href="#home">
+          Journals
+        </Nav.Link>
+        <Nav.Link className="navbar-text" href="#chat">
+          Chat
+        </Nav.Link> */}
+        <Button
+          className="sign-out"
+          variant="light"
+          onClick={() => auth.signOut()}
+        >
           Sign Out
         </Button>
-        &nbsp;
-        <Navbar.Text>Signed in as: {user.displayName}</Navbar.Text>
+        {/* &nbsp;
+        <Navbar.Text>Signed in as: {user.displayName}</Navbar.Text> */}
       </Navbar.Collapse>
     </Navbar>
   );

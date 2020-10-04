@@ -1,12 +1,12 @@
 import React from "react";
-
 import { useState } from "react";
 import Axios from "axios";
 import firebase from "firebase/app";
 import { firestore, auth } from "../firebase";
 import { useCollectionData } from "react-firebase-hooks/firestore";
+import Button from "react-bootstrap/Button";
 
-function TodayEntry() {
+function TodayEntry(prompt) {
   const messagesRef = firestore.collection("entries");
 
   const [formValue, setFormValue] = useState("");
@@ -28,23 +28,24 @@ function TodayEntry() {
         text: formValue,
         createdAt: firebase.firestore.FieldValue.serverTimestamp(),
         uid,
+        prompt: prompt.prompt,
       };
       // console.log(tones[0]);
       for (var i = 0; i < tones.length; i++) {
         if (tones[i].tone_name === "Joy") {
-          send.Joy = tones[i].score;
+          send.Joy = tones[i].score * 100;
         } else if (tones[i].tone_name === "Angry") {
-          send.Angry = tones[i].score;
+          send.Angry = tones[i].score * 100;
         } else if (tones[i].tone_name === "Fear") {
-          send.Fear = tones[i].score;
+          send.Fear = tones[i].score * 100;
         } else if (tones[i].tone_name === "Sadness") {
-          send.Sadness = tones[i].score;
+          send.Sadness = tones[i].score * 100;
         } else if (tones[i].tone_name === "Analytical") {
-          send.Analytical = tones[i].score;
+          send.Analytical = tones[i].score * 100;
         } else if (tones[i].tone_name === "Confident") {
-          send.Confident = tones[i].score;
+          send.Confident = tones[i].score * 100;
         } else if (tones[i].tone_name === "Tentative") {
-          send.Tentative = tones[i].score;
+          send.Tentative = tones[i].score * 100;
         }
       }
       messagesRef.add(send);
@@ -54,12 +55,16 @@ function TodayEntry() {
   };
 
   return (
-    <form onSubmit={sendMessage}>
-      <input value={formValue} onChange={(e) => setFormValue(e.target.value)} />
-
-      <button type="submit" disabled={!formValue}>
+    <form onSubmit={sendMessage} style={{ padding: "1rem" }}>
+      <textarea
+        style={{ width: "90%", marginLeft: "5%", height: "15rem" }}
+        value={formValue}
+        onChange={(e) => setFormValue(e.target.value)}
+      />
+      <br />
+      <Button type="submit" disabled={!formValue}>
         Add Entry
-      </button>
+      </Button>
     </form>
   );
 }

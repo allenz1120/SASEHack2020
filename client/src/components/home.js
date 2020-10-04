@@ -1,7 +1,7 @@
 import React from "react";
 import NavBar from "./navigation";
 import Jumbo from "./jumbotron";
-import TodayEntry from "./todayEntry";
+// import TodayEntry from "./todayEntry";
 import OldEntry from "./OldEntry";
 import BarChart from "./BarChart";
 import "./../styles/home.scss";
@@ -13,7 +13,7 @@ const Home = () => {
         <NavBar />
         <Jumbo />
       </div>
-      <TodayEntry />
+      {/* <TodayEntry /> */}
       <OldEntry />
       <BarChart />
     </div>

@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import Axios from "axios";
+// import Axios from "axios";
 import Home from "./components/home";
 import "bootstrap/dist/css/bootstrap.min.css";
 import firebase from "firebase/app";
@@ -34,7 +34,7 @@ function SignIn() {
 
   let child = {
     maxWidth: "20rem",
-    background: "#eee",
+    background: "#ee",
     padding: "1rem",
     borderRadius: "2rem",
     position: "absolute",
